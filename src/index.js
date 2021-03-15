@@ -29,17 +29,16 @@ function saveTheme() {
   localStorage.setItem('theme', ref.input.checked);
 }
 
-function onClickThemeSwitchInput(e) {
-  if (e.target.checked) {
-    ref.body.classList.remove(Theme.LIGHT);
-    ref.body.classList.add(Theme.DARK);
-    return saveTheme();
-  }
-  ref.body.classList.remove(Theme.DARK);
-  ref.body.classList.add(Theme.LIGHT);
+function onClickThemeSwitchInput() {
+  changeThemeClass();
   return saveTheme();
 }
 
 function createMenuMarkup(menu) {
   return menu.map(menuTpl).join('');
+}
+
+function changeThemeClass() {
+  ref.body.classList.toggle(Theme.LIGHT);
+  ref.body.classList.toggle(Theme.DARK);
 }
